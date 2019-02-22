@@ -83,12 +83,12 @@ function spotifyCommand(command = "The+Sign") {
     let songName = data.tracks.items[0].name;
     let preview = data.tracks.items[0].preview_url;
     let album = data.tracks.items[0].album.name;
-    console.log("\x1b[32m", "\x1b[40m")
-    console.log("♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫  Spotify Search Results Below!  ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫")
-    console.log("♫")
-    console.log(`♫ Your song is called: ${songName}`);
-    console.log(`♫ It's by the artist: ${artist}`);
-    console.log(`♫ And off the album: ${album}`)
+    console.log(`"\x1b[32m", "\x1b[40m"
+♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫  Spotify Search Results Below!  ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
+♫
+♫ Your song is called: ${songName}
+♫ It's by the artist: ${artist}
+♫ And off the album: ${album}`)
     if(!preview){
       console.log("♫ Unfortunatley, no preview of the song is available")
     } else{
