@@ -15,13 +15,26 @@ let content = process.argv[3];
 switch(platform){
     case "concert-this":
         concertCommand(content);
+        break
+    default :
+        console.log("Please enter a valid command")
 }
 
-function concertCommand(content){
+//Searches Bands In Town for the specified artist in second node argument. If blank, defaults to rhye
+function concertCommand(content = "rhye"){
     let twoWords = content.split(' ')
     let queryJoin = twoWords.join('+')
     let url = "https://rest.bandsintown.com/artists/" + queryJoin + "/events?app_id=codingbootcamp";
     axios.get(url).then(function (response){
+        console.log(`Below are upcoming concert results for ${response.data[0].lineup[0]}`)
+        console.log('           ')
+        console.log('|||||||||||')
+        console.log('|||||||||||')
+        console.log('|||||||||||')
+        console.log('|||||||||||')
+        console.log('|||||||||||')
+        console.log('VVVVVVVVVVV')
+        console.log('           ')
         response.data.forEach(show =>{
             console.log(`Venue: ${show.venue.name}`)
             console.log(`City: ${show.venue.city}`)
@@ -30,3 +43,4 @@ function concertCommand(content){
         })
     });
 }
+
