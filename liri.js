@@ -11,24 +11,24 @@ const spotify = new Spotify(keys.spotify);
 // Argument variables
 let platform = process.argv[2];
 let content = process.argv.splice(3)
-let joinedContent = content.join("+")
+let command = content.join("+")
 
 if(platform === "do-what-it-says"){
   doWhatCommand(platform);
 } else{
-  runSwitch(platform);
+  runSwitch(platform, command);
 }
 
-function runSwitch(platform){
+function runSwitch(platform,command){
 switch (platform) {
   case "concert-this":
-    concertCommand(joinedContent);
+    concertCommand(command);
     break;
   case "spotify-this-song":
-    spotifyCommand(joinedContent);
+    spotifyCommand(command);
     break;
   case "movie-this":
-    omdbCommand(joinedContent);
+    omdbCommand(command);
     break;
 
   default:
@@ -37,12 +37,13 @@ switch (platform) {
 }
 
 //Searches Bands In Town for the specified artist in second node argument. If blank, defaults to rhye
-function concertCommand(joinedContent = "rhye") {
+function concertCommand(command = "rhye") {
   let i = 0;
   let url =
-    `https://rest.bandsintown.com/artists/${joinedContent}/events?app_id=codingbootcamp`;
+    `https://rest.bandsintown.com/artists/${command}/events?app_id=codingbootcamp`;
   axios.get(url).then(function(response) {
     console.log("\x1b[36m", "\x1b[47m")
+    console.log(command)
     if (!response.data[0]){
       return console.log("No upcoming concerts found")
     }
@@ -70,8 +71,8 @@ function concertCommand(joinedContent = "rhye") {
   });
 }
 
-function spotifyCommand(joinedContent = "The+Sign") {
-  spotify.search({type:"track", query: joinedContent}, function(err,data){
+function spotifyCommand(command = "The+Sign") {
+  spotify.search({type:"track", query: command}, function(err,data){
     if (err){
       console.log(err)
     }
@@ -98,8 +99,8 @@ function spotifyCommand(joinedContent = "The+Sign") {
   })
 }
 
-function omdbCommand(joinedContent = 'mr+nobody') {
-  let url = `http://www.omdbapi.com/?apikey=da38a2f6&t=${joinedContent}`
+function omdbCommand(command = 'mr+nobody') {
+  let url = `http://www.omdbapi.com/?apikey=da38a2f6&t=${command}`
   axios.get(url).then(function(response){
     console.log("\x1b[30m","\x1b[43m")
     if(!response.data.Title){
@@ -138,9 +139,10 @@ function doWhatCommand(platform) {
     }
     let commandContent = data.split(",");
     platform = commandContent[0]
-    command = commandContent[1]
+    let regEx = /\s/g
+    command = commandContent[1].replace(regEx, '+')
     console.log(platform)
     console.log(command)
-    //runSwitch(platformm);
+    runSwitch(platform,command);
   })
 }
