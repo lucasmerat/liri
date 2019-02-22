@@ -1,2 +1,2 @@
 # liri
-! [Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![](https://media.giphy.com/media/E0tQbvwKIO8C8rbvcQ/giphy.gif)
