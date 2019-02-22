@@ -13,6 +13,13 @@ let platform = process.argv[2];
 let content = process.argv.splice(3)
 let joinedContent = content.join("+")
 
+if(platform === "do-what-it-says"){
+  doWhatCommand(platform);
+} else{
+  runSwitch(platform);
+}
+
+function runSwitch(platform){
 switch (platform) {
   case "concert-this":
     concertCommand(joinedContent);
@@ -23,12 +30,10 @@ switch (platform) {
   case "movie-this":
     omdbCommand(joinedContent);
     break;
-  case "do-what-it-says":
-    doWhatCommand(joinedContent);
-    break;
 
   default:
     console.log("Please enter a valid command");
+  }
 }
 
 //Searches Bands In Town for the specified artist in second node argument. If blank, defaults to rhye
@@ -126,4 +131,16 @@ function omdbCommand(joinedContent = 'mr+nobody') {
   })
 }
 
-function doWhatCommand() {}
+function doWhatCommand(platform) {
+  fs.readFile("random.txt","utf8",function(err,data){
+    if (err){
+      console.log(err)
+    }
+    let commandContent = data.split(",");
+    platform = commandContent[0]
+    command = commandContent[1]
+    console.log(platform)
+    console.log(command)
+    //runSwitch(platformm);
+  })
+}
