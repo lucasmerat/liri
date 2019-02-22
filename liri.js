@@ -23,12 +23,15 @@ function runSwitch(platform,command){
 switch (platform) {
   case "concert-this":
     concertCommand(command);
+    logCommand(platform,command)
     break;
   case "spotify-this-song":
     spotifyCommand(command);
+    logCommand(platform,command)
     break;
   case "movie-this":
     omdbCommand(command);
+    logCommand(platform,command)
     break;
 
   default:
@@ -129,6 +132,14 @@ function omdbCommand(command = 'mr+nobody') {
 🎬  ${plot}
 `)
     }
+  })
+}
+
+function logCommand (platform,command){
+  fs.appendFile("log.txt", `Accessed platform ${platform} and used query ${command},
+`,function(data, err){
+    if (err) console.log(err)
+    console.log("Logged command to log.txt")
   })
 }
 
