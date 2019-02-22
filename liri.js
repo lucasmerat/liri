@@ -152,8 +152,6 @@ function doWhatCommand(platform) {
     platform = commandContent[0]
     let regEx = /\s/g
     command = commandContent[1].replace(regEx, '+')
-    console.log(platform)
-    console.log(command)
     runSwitch(platform,command);
   })
 }
