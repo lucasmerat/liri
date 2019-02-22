@@ -53,25 +53,25 @@ function concertCommand(command = "rhye") {
       console.log(
       `Below are upcoming concert results for ${response.data[0].lineup[0]}`
     );
-    console.log("           ");
-    console.log("|||||||||||");
-    console.log("|||||||||||");
-    console.log("|||||||||||");
-    console.log("|||||||||||");
-    console.log("|||||||||||");
-    console.log("VVVVVVVVVVV");
-    console.log("           ");
+    console.log(`           
+                 |||||||||||
+                 |||||||||||
+                 |||||||||||
+                 |||||||||||
+                 |||||||||||
+                 VVVVVVVVVVV
+`);
     response.data.forEach(show => {
       i++;
-      console.log(`Concert # ${i}`);
-      console.log(`Venue: ${show.venue.name}`);
-      console.log(`City: ${show.venue.city}`);
-      console.log(
-        `Date: ${moment(show.datetime).format("MMMM Do YYYY, h:mm a")}`
-      );
-      console.log("---------");
-    });
-  });
+      console.log(`Concert # ${i}
+Venue: ${show.venue.name}
+City: ${show.venue.city}
+Date: ${moment(show.datetime).format("MMMM Do YYYY, h:mm a")}
+
+--------------------
+`)
+    })
+})
 }
 
 function spotifyCommand(command = "The+Sign") {
@@ -98,7 +98,6 @@ function spotifyCommand(command = "The+Sign") {
     };
     console.log("♫")
     console.log("♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫")
-
   })
 }
 
@@ -154,4 +153,5 @@ function doWhatCommand(platform) {
     command = commandContent[1].replace(regEx, '+')
     runSwitch(platform,command);
   })
+
 }
