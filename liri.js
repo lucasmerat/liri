@@ -45,8 +45,7 @@ function concertCommand(command = "rhye") {
   let url =
     `https://rest.bandsintown.com/artists/${command}/events?app_id=codingbootcamp`;
   axios.get(url).then(function(response) {
-    console.log("\x1b[36m", "\x1b[47m")
-    console.log(command)
+    console.log("\x1b[47m", "\x1b[36m")
     if (!response.data[0]){
       return console.log("No upcoming concerts found")
     }
@@ -83,7 +82,8 @@ function spotifyCommand(command = "The+Sign") {
     let songName = data.tracks.items[0].name;
     let preview = data.tracks.items[0].preview_url;
     let album = data.tracks.items[0].album.name;
-    console.log(`"\x1b[32m", "\x1b[40m"
+    console.log("\x1b[32m", "\x1b[40m")
+    console.log(`
 ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫  Spotify Search Results Below!  ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫
 ♫
 ♫ Your song is called: ${songName}
@@ -153,5 +153,4 @@ function doWhatCommand(platform) {
     command = commandContent[1].replace(regEx, '+')
     runSwitch(platform,command);
   })
-
 }
