@@ -1,7 +1,7 @@
 # Liri Bot
 
 ## Description
-Liri is a command line application that takes requests and returns results from a variety of APIs. Created for UT Bootcamp week 9. 
+Liri is a command line application that takes requests and returns results from a variety of APIs. Each command is styled to look like the branding of the service it is pulling data from. Created for UT Bootcamp week 9. 
 
 ## Technologies used
 - [Axios](https://www.npmjs.com/package/axios)
@@ -17,17 +17,17 @@ Clone thje repo to your desktop and run `npm install` to install all the depende
 Follow along with the GIFs below to learn all available commands/features
 
 ### Spotify song info
-Run the following in your command line to get relevant data from Spotify &nbsp;
+Run the following in your command line to get relevant data from Spotify \
 `node liri.js spotify-this-song [YOUR SONG HERE]`
 ![](images/spotify.gif)
 
 ### Upcoming concert info
-Run the following in your command line to get relevant data from Bands In Town and see who is playing a showe near you &nbsp;
+Run the following in your command line to get relevant data from Bands In Town and see who is playing a showe near you \
 `node liri.js concert-this [YOUR ARTIST/BAND HERE]`
 ![](images/concert.gif)
 
 ### Movie info
-Run the following in your command line to learn more about any movie in IMDB &nbsp;
+Run the following in your command line to learn more about any movie in IMDB \
 `node liri.js movie-this [YOUR MOVIE HERE]`
 ![](images/movie.gif)
 
