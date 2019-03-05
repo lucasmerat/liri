@@ -11,7 +11,7 @@ Liri is a command line application that takes requests and returns results from 
 - [Bands In Town API](https://manager.bandsintown.com/support/bandsintown-api)
 
 ## Install instructions
-Clone thje repo to your desktop and run `npm install` to install all the dependencies.
+Clone the repo to your desktop and run `npm install` to install all the dependencies.
 
 ## Use instructions
 Follow along with the GIFs below to learn all available commands/features
